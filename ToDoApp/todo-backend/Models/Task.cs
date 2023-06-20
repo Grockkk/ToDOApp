@@ -9,6 +9,7 @@ namespace ToDoApp.Models
         public string name { get; set; }
         public string description { get; set; }
         public int importance { get; set; }
-        public int date { get; set; }
+        public DateTime date { get; set; }
+        public int status { get; set; }
     }
 }

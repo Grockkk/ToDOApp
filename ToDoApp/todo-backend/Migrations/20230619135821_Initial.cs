@@ -19,7 +19,8 @@ namespace ToDoApp.Migrations
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     importance = table.Column<int>(type: "int", nullable: false),
-                    date = table.Column<int>(type: "int", nullable: false)
+                    date = table.Column<DateTime>(type: "date", nullable: false),
+                    status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
