@@ -17,13 +17,20 @@ namespace ToDoApp.Controllers
         }
 
         [HttpGet]
-        [Route("GetTask")]
         public async Task<IEnumerable<Models.Task>> GetTasks()
         {
             return await _toDoDBContext.Tasks.ToListAsync();
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public Models.Task? GetTaskById(int id)
+        {
+            return _toDoDBContext.Tasks.FirstOrDefault(x=>x.id == id);
+        }
+
         [HttpPost]
-        [Route("AddTasks")]
+        [Route("Add")]
         public async Task<Models.Task> AddTask(Models.Task objTask)
         {
             _toDoDBContext.Tasks.Add(objTask);
@@ -32,7 +39,7 @@ namespace ToDoApp.Controllers
         }
 
         [HttpPatch]
-        [Route("UpdateTasks/{id}")]
+        [Route("Update/{id}")]
         public async Task<Models.Task> UpdateTask(Models.Task objTask)
         {
             _toDoDBContext.Entry(objTask).State= EntityState.Modified;
@@ -41,7 +48,7 @@ namespace ToDoApp.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteTasks/{id}")]
+        [Route("Delete/{id}")]
         public bool DeleteTask(int id)
         {
             bool a = false;
