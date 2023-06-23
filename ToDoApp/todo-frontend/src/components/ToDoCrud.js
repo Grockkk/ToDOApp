@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Show from './Show';
+import { useNavigate  } from 'react-router-dom';
 
 function ToDoCrud() {
     //const [id, setId] = useState("");
@@ -10,6 +9,7 @@ function ToDoCrud() {
     //const [importance, setImportance] = useState("");
     //const [date, setDate] = useState("");
     //const [status, setStatus] = useState("");
+    const navigate = useNavigate();
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -29,12 +29,16 @@ function ToDoCrud() {
         }
     }
 
-
+    const handleClick=()=>{
+        //navigating to Home 
+        navigate('/Show')
+      }
+    
 
     return (
         <div>
             <h2>Todo Details</h2>
-                <div class="container mt-4">
+                <div className="container mt-4">
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -53,7 +57,7 @@ function ToDoCrud() {
                             <td>{task.date}</td>
                             <td>{task.importance}</td>
                             <td>
-                                <button>Details</button>
+                                <button onClick={handleClick}>Details</button>
                             </td>
                         </tr>
                     ))}
