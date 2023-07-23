@@ -30,40 +30,39 @@ function ToDoCrud() {
     }
 
     const handleClick=()=>{
-        //navigating to Home 
         navigate('/Show')
       }
     
 
     return (
         <div>
-            <h2>Todo Details</h2>
+
                 <div className="container mt-4">
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Importance</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tasks.map((task) => (
-                        <tr key={task.id}>
-                            <td>{task.name}</td>
-                            <td>{task.description}</td>
-                            <td>{task.date}</td>
-                            <td>{task.importance}</td>
-                            <td>
-                                <button onClick={handleClick}>Details</button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            </div>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Importance</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tasks.map((task) => (
+                                <tr key={task.id}>
+                                    <td>{task.name}</td>
+                                    <td>{task.description}</td>
+                                    <td>{task.date}</td>
+                                    <td>{task.importance}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary" onClick={handleClick}>Details</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
         </div>
     );
 }

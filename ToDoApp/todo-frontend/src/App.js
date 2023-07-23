@@ -8,7 +8,7 @@ function App() {
   return (
        <Routes>
           <Route path="/ToDoCrud" element={<ToDoCrud />} />
-            <Route path="/Show" element={<Show />} />
+            <Route path="/Show/:id" element={<Show />} />
           
        </Routes>
  );
